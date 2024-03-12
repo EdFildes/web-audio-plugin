@@ -7,20 +7,31 @@
   <title>Web Audio!</title>
 </head>
 <body>
-  <div>
-    <canvas id="controls"></canvas>
-    <canvas id="oscilloscope"></canvas>
-    <div>
-      <input type="range" id="slider" name="slider" min="1" max="10" value="2"/>
-      <label for="slider">slider</label>
-    </div>
-    <div>
-      <button onclick="playAudio()">Play audio</button>
-      <button onclick="stopAudio()">Stop audio</button>
-    </div>
+  <h1 class="heading">▂▃▅▇█▓▒░Noise Generator░▒▓█▇▅▃▂</h1>
+  <div class="container">
+    <div class="plugin">
+      <div class="oscilloscope box">
+        <canvas width="528px" id="oscilloscope"></canvas>
+      </div>
+      <div class="x-y-controls box">
+        <canvas id="x-y-controls" width="250" height="160"></canvas>
+      </div>
+      <div class="output-control box">
+        <div class="gain">
+          <input type="range" id="gain-slider" name="gain-slider" min="1" max="20" value="10"/>
+          <label for="gain-slider">Gain</label>
+        </div>
+        <div class="play-pause-container">
+          <button id="play-pause" onclick="playAudio()">Play/Pause</button>
+        </div>
+      </div>
+    </div>  
   </div>
-  <script src="oscilloscope.js"></script>
-  <script src="controls.js"></script>
+
+  <script src="js/configure-gain-nodes.js"></script>
+  <script src="js/setup-audio-worklets.js"></script>
+  <script src="js/oscilloscope.js"></script>
+  <script src="js/controls.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
