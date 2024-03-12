@@ -1,15 +1,18 @@
 body {
   height: 100vh;
   margin: 0;
-  background: url("./assets/img/background.jpg");
+  background: url("./assets/img/background.jpg") #9a9a9a;
   background-position: center;
+  background-repeat: no-repeat;
   background-size: contain;
   display: flex;
   flex-direction: column;
+  background-blend-mode: color-burn;
 }
 
 .heading{
   margin: 40px auto;
+  color: #d8d8d8;
 }
 
 .box{
