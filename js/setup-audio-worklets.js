@@ -1,38 +1,23 @@
 const setupAudioWorklets = async (audioCtx) => {
-  await audioCtx.audioWorklet.addModule("js/random-noise-processor.js");
-  await audioCtx.audioWorklet.addModule("js/resonator-processor.js");
 
-  const randomNoiseNode = new AudioWorkletNode(
-    audioCtx,
-    "random-noise-processor",
-    {
-      outputChannelCount: [2]
-    }
-  );
+  const audioWorkletConfig = getAudioWorkletConfig(audioCtx.sampleRate)
 
-  const resonatorNode = new AudioWorkletNode(
-    audioCtx,
-    "resonator-processor",
-    {
-      outputChannelCount: [2],
-      processorOptions: {
-        sampleRate: audioCtx.sampleRate
-      },
-      parameterData: {
-        Q: 0.5,
-        fc: 1500
-      }
-    }
-  );
+  const audioWorklets = {}
 
-  [randomNoiseNode, resonatorNode].forEach(node => {
-    node.port.onmessage = (event) => {
-      console.log(event.data)
+  for(let [name, config] of Object.entries(audioWorkletConfig)){
+    await audioCtx.audioWorklet.addModule(`js/audio-worklets/${config.location}.js`);
+
+    const worklet = new AudioWorkletNode(audioCtx, config.location, config.options);
+
+    worklet.port.onmessage = (event) => {
+      console.log(config.location, event.data)
     }
-    node.onprocessorerror = (event) => {
-      console.error(event);
+    worklet.onprocessorerror = (event) => {
+      console.error(config.location, event.message);
     };
-  })
 
-  return {randomNoiseNode, resonatorNode}
+    audioWorklets[name] = worklet
+  }
+
+  return audioWorklets
 }

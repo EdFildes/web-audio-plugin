@@ -6,11 +6,15 @@ const oscilloscope = new Oscilloscope(audioCtx, oscilloscope_canvas)
 const controls = new Controls(controls_canvas)
 
 const main = async () => {
-  const {randomNoiseNode, resonatorNode} = await setupAudioWorklets(audioCtx)
-  const {gainNodeUser, gainNodeInternal} = configureGainNodes(audioCtx, controls, resonatorNode)
+  const {randomNoiseNode, combFilterNode} = await setupAudioWorklets(audioCtx)
+  const {gainNodeUser, gainNodeInternal} = configureGainNodes(audioCtx)
+
+
+  //controls.addNode(resonatorNode)
+
 
   randomNoiseNode
-    .connect(resonatorNode)
+    .connect(combFilterNode)
     .connect(gainNodeUser)
     .connect(oscilloscope.analyser)
     .connect(gainNodeInternal)
