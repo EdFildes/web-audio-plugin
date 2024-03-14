@@ -24,6 +24,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;  
   box-shadow: inset 0px 10px 48px 36px rgba(126, 126 , 126, 1);
+  border-radius: 10%;
 }
 
 .heading{
@@ -39,8 +40,10 @@ body {
 
 .box{
   border: 2px #585858 solid;
-  background-color: rgba(200 200 200, 0.2);
+  background-color: rgba(96, 96, 96, 0.5 );
   margin: 10px;
+  border-radius: 5px;
+  padding: 1px; 
 } 
 
 .oscilloscope{
@@ -71,7 +74,7 @@ body {
   display: flex;
   justify-content: center;
   margin: 30px;
-  padding: 50px;
+  padding: 70px;
 }
 
 .plugin{
@@ -87,6 +90,7 @@ body {
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: 50% 50%;
+  border-radius: 2%;
 }
 
 .gain{
