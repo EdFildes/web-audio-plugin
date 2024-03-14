@@ -9,10 +9,12 @@ class Oscilloscope {
 
     this.canvas = canvas
     this.canvasCtx = canvas.getContext("2d");
+    this.canvasCtx.globalAlpha = 0.1;
     this.drawInitial();
   }
 
   drawInitial() {
+    this.canvasCtx.globalAlpha = 0.1;
     this.canvasCtx.fillStyle = "rgb(200 200 200)";
     this.canvasCtx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     this.canvasCtx.lineWidth = 2;
@@ -27,6 +29,7 @@ class Oscilloscope {
 
   draw() {
     requestAnimationFrame(() => this.draw());
+    this.canvasCtx.globalAlpha = 0.05;
   
     this.analyser.getByteTimeDomainData(this.dataArray);
   
