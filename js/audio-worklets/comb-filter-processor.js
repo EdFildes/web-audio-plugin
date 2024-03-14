@@ -13,8 +13,8 @@ class CombFilterProcessor extends AudioWorkletProcessor {
     for(let outputNum = 0; outputNum < outputs.length; outputNum++){
       const output = outputs[outputNum]
 
-      const feedback = 0.92
-      const delayMs = 0.00001
+      const feedback = this.g[outputNum]
+      const delayMs = this.D[outputNum] / 1000
       const delaySamples = this.sampleRate * delayMs
 
       //this.port.postMessage(delaySamples)
@@ -27,7 +27,7 @@ class CombFilterProcessor extends AudioWorkletProcessor {
         // loop through samples in given channel
         for (let n = 0; n < outputChan.length; n++) {
           const nMinusD = n >= delaySamples ? (n - delaySamples) : n
-          outputChan[n] = inputChan[n]  
+          outputChan[n] = inputChan[nMinusD] + (0.92 * outputChan[nMinusD])
         }
       }
     }
