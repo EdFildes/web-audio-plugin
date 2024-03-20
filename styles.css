@@ -1,31 +1,55 @@
+:root {
+  --text-color-dark: #7e7a7a;
+  --text-color-light: 
+}
+
 body {
-  height: 100vh;
   margin: 0;
-  background: url("./assets/img/background.jpg") #9a9a9a;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
+  background-color: #808080;
+  height: 100vh;
+}
+
+.contents { 
+  padding: 50px 0px;
+  display: flex;
+  background-color: #80808052;
+}
+
+.background{
   display: flex;
   flex-direction: column;
   background-blend-mode: color-burn;
+  background: url("./assets/img/background.jpg") #a09f9f29;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;  
+  box-shadow: inset 0px 10px 48px 36px rgba(126, 126 , 126, 1);
+  border-radius: 10%;
 }
 
 .heading{
-  margin: 40px auto;
-  color: #d8d8d8;
+  margin: 50px auto 0px auto;
+  color: #d7d7d7c7;
+  font-family: "Pixelify Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 50px;
+  transform: rotate(-90deg) translateX(-250px);
 }
 
 .box{
-  border: 2px black solid;
-  background-color: rgb(200 200 200);
+  border: 2px #585858 solid;
+  background-color: rgba(96, 96, 96, 0.5 );
   margin: 10px;
+  border-radius: 5px;
+  padding: 1px; 
 } 
 
 .oscilloscope{
   grid-column-start: 1;
   grid-column-end: 3;
   height: 150px;
-  background-color: rgb(200 200 200);
 }
 
 .x-y-controls{
@@ -42,16 +66,22 @@ body {
   padding: 5px;
 }
 
+.gain-label{
+  color: #cfcfcf;
+}
+
 .container{
-  height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  margin: 30px;
+  padding: 70px;
 }
 
 .plugin{
+  height: 500px;
   padding: 20px;
-  background: url("./assets/img/pattern.jpg"), #80808042;
+  background-color: #80808030;
+  backdrop-filter: blur(2px);
   border: 2px #80808042 solid;
   background-size: 50px 10px;
   background-blend-mode: hard-light;
@@ -60,6 +90,7 @@ body {
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: 50% 50%;
+  border-radius: 2%;
 }
 
 .gain{
