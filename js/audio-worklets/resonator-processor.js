@@ -1,4 +1,4 @@
-class ResonatorProcessor extends AudioWorkletProcessor {
+export class ResonatorProcessor extends AudioWorkletProcessor {
   constructor(options) {
     super();
     this.sampleRate = options.processorOptions.sampleRate

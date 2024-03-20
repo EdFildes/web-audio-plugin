@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <title>Web Audio!</title>
+  <title>Ghost Generator</title>
 </head>
 <body>
   <div class="contents">
@@ -29,17 +29,19 @@
               <label class="gain-label" for="gain-slider">Gain</label>
             </div>
             <div class="play-pause-container">
-              <button id="play-pause" onclick="playAudio()">Play/Pause</button>
+              <button id="play-pause">Play/Pause</button>
             </div>
           </div>
         </div>  
       </div>
     </div>
   </div>
-  <script src="js/configure-gain-nodes.js"></script>
-  <script src="js/setup-audio-worklets.js"></script>
-  <script src="js/oscilloscope.js"></script>
-  <script src="js/controls.js"></script>
-  <script src="main.js"></script>
+
+  <script type="module" src="js/configure-gain-nodes.js"></script>
+  <script type="module" src="js/audio-worklets/get-audio-worklet-config.js"></script>
+  <script type="module" src="js/audio-worklets/setup-audio-worklets.js"></script>
+  <script type="module" src="js/UI/oscilloscope.js"></script>
+  <script type="module" src="js/UI/controls.js"></script>
+  <script type="module" src="main.js"></script>
 </body>
 </html>

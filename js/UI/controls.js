@@ -6,7 +6,7 @@ const drawAlphaBackground = (ctx, canvas) => {
 }
 
 
-class Controls {
+export default class Controls {
   canDraw = false;
 
   constructor(controlsCanvas){
