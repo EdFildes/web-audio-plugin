@@ -1,4 +1,6 @@
-const setupAudioWorklets = async (audioCtx) => {
+import getAudioWorkletConfig from "./get-audio-worklet-config.js";
+
+export const setupAudioWorklets = async (audioCtx) => {
 
   const audioWorkletConfig = getAudioWorkletConfig(audioCtx.sampleRate)
 

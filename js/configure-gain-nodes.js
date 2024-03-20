@@ -14,3 +14,5 @@ const configureGainNodes = (audioCtx) => {
     gainNodeInternal
   }
 }
+
+export default configureGainNodes

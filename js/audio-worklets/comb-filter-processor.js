@@ -1,4 +1,4 @@
-class CombFilterProcessor extends AudioWorkletProcessor {
+export class CombFilterProcessor extends AudioWorkletProcessor {
   constructor(options) {
     super();
     this.sampleRate = options.processorOptions.sampleRate

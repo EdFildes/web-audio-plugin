@@ -31,3 +31,5 @@ const getAudioWorkletConfig = (sampleRate) => ({
     }
   }
 })
+
+export default getAudioWorkletConfig

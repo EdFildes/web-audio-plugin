@@ -1,4 +1,4 @@
-class Oscilloscope {
+export default class Oscilloscope {
   constructor(audioCtx, canvas){
     this.analyser = audioCtx.createAnalyser();
     this.analyser.fftSize = 2048;
